@@ -11,9 +11,7 @@ struct package {
 };
 
 int main() {
-    queue<package> input;
-    queue<package>buffer;
-
+    queue<package> input, buffer;
     int size, n;
     cin >> size >> n;
     vector<int> z(n+1);
@@ -24,13 +22,11 @@ int main() {
         a.number = i;
         input.push(a);
     }
-
     for (int j = 0; j < min(n,size); j++) {
         auto m = input.front();
         buffer.push(m);
         input.pop();
     }
-
     while (buffer.size() > 0) {
         auto k = buffer.front();
         int proc_end = k.begin_proc + k.duration;
